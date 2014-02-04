@@ -1,0 +1,214 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<head>
+<link rel="stylesheet" type="text/css" media="all" href="css/reset.css" />
+<link rel="stylesheet" type="text/css" media="all" href="css/text.css" />
+<link rel="stylesheet" type="text/css" media="all" href="css/960.css" />
+<link rel="stylesheet" type="text/css" media="all" href="css/style.css" />
+<link href="css/galleria.css" rel="stylesheet" type="text/css" media="screen"> 
+
+<script type="text/javascript" src="jquery-1.2.6.min.js"></script> 
+<script type="text/javascript" src="jquery.galleria.js"></script> 
+<script type="text/javascript"> 
+jQuery(function($) { 
+
+$('ul.gallery').galleria({
+			history   : true, // activates the history object for bookmarking, back-button etc.
+			clickNext : true, // helper for making the image clickable
+			insert    : '#main_image', // the containing selector for our main image
+			onImage   : function(image,caption,thumb) { // let's add some image effects for demonstration purposes
+				
+				// fade in the image & caption
+				if(! ($.browser.mozilla && navigator.appVersion.indexOf("Win")!=-1) ) { // FF/Win fades large images terribly slow
+					image.css('display','none').fadeIn(1000);
+				}
+				caption.css('display','none').fadeIn(600);
+				
+				// fetch the thumbnail container
+				var _li = thumb.parents('li');
+				
+				// fade out inactive thumbnail
+				_li.siblings().children('img.selected').fadeTo(500,0.3);
+				
+				// fade in active thumbnail
+				thumb.fadeTo('fast',1).addClass('selected');
+				
+				// add a title for the clickable image
+				image.attr('title','Next image >>');
+			},
+			onThumb : function(thumb) { // thumbnail effects goes here
+				
+				// fetch the thumbnail container
+				var _li = thumb.parents('li');
+				
+				// if thumbnail is active, fade all the way.
+				var _fadeTo = _li.is('.active') ? '1' : '0.3';
+				
+				// fade in the thumbnail when finnished loading
+				thumb.css({display:'none',opacity:_fadeTo}).fadeIn(1000);
+				
+				// hover effects
+				thumb.hover(
+					function() { thumb.fadeTo('fast',1); },
+					function() { _li.not('.active').children('img').fadeTo('fast',0.3); } // don't fade out if the parent is active
+				)
+			}
+		});
+
+
+
+
+
+
+}); 
+</script>
+
+<style media="screen,projection" type="text/css">
+	
+	/* BEGIN DEMO STYLE */
+
+	.gallery li{width:80px;height:60px;border:3px double #111;margin: 0 2px;background:#000; float:left;}
+	.gallery {width:300px;}
+
+    </style>
+
+
+
+
+<title>Casa Joaninha</title>
+</head>
+
+<body>
+
+
+<div class="container_12" id="topContent">
+
+    <div class="grid_4">
+            <h1>Casa Joaninha</h1>
+            <h2>Private house in Portugal</h2>
+
+
+    </div>
+			    <div class="grid_8" id="rightTopContent">
+          <!--  <a href="file:///C:/uni/Projects/Portugal/simplegallery/index.html#./images/1.jpg">home</a> | -->
+           <!-- <a href="file:///C:/uni/Projects/Portugal/simplegallery/contact.html#./images/1.jpg">contact</a> -->
+               <a href="index.html#./images/1.jpg">home</a> |
+				<a href="contact.html#./images/1.jpg">contact</a>
+    </div>
+	
+</div>
+
+
+    <div class="clear">&nbsp;</div>
+
+<div class="container_12">
+<div class="grid_4">    
+
+        <ul class="gallery"> 
+			<li class="active">
+		    <img src="./images/12.jpg" title="Entrance" alt="1"></li> 
+			<li><img src="./images/1.jpg" title="Pool area" alt="2"></li> 
+            <li><img src="./images/2.jpg" title="Street view" alt="3"></li> 
+            <li><img src="./images/3.jpg" title="Living room" alt="4"></li> 
+            <li><img src="./images/4.jpg" title="Living room" alt="5"></li> 
+            <li><img src="./images/5.jpg" title="Bedroom #1" alt="6"></li> 
+            <li><img src="./images/6.jpg" title="Bedroom #2" alt="7"></li> 
+            <li><img src="./images/7.jpg" title="Bedroom #3" alt="8"></li> 
+            <li><img src="./images/8.jpg" title="Kitchen" alt="9"></li> 
+            <li><img src="./images/9.jpg" title="Bathroom" alt="10"></li> 
+            <li><img src="./images/10.jpg" title="Swiming pool view from the balcony" alt="11"></li> 
+            <li><img src="./images/11.jpg" title="Working room (with a baby bed)" alt="12"></li> 
+		</ul>
+        
+	</div>
+	<!-- end .grid_4 -->
+	<div class="grid_8">
+
+			<div id="main_image"></div>
+			
+	</div>
+    </div>
+    <div class="clear">&nbsp;</div>
+    <div class="container_16">
+    <div class="grid_2">
+		<p>&nbsp;</p>
+	</div>
+    
+      <div class="grid_12" id="galleryInformation">
+		<h2>Casa Joaninha</h2>
+        <p>
+		Lovely detached villa with swimming pool in Guia (central Algarve, Portugal). The house is located in a beautiful and well maintained estate with extensive green areas and gardens.
+		The villa is facing south with plenty of sunshine. It is situated at walking distance to the village of Guia with its facilities of restaurants, banks, pharmacy and supermarkets.  
+		The Algarve Shopping (one of the biggest shopping centers of the Algarve) includes many shops, restaurants and cinema. The town Albufeira and some of the best beaches in Algarve are located within a few minutes’ drive.
+		The property is fully fenced. The pool area has a shower, barbecue, covered terrace and comfortable relax area.
+		</p>
+        
+      <h2>Ground Floor</h2>
+       <p> 
+		Hall, kitchen, 2 bedrooms, lounge and dining room (with TV) and patio doors to the covered terrace.
+		The kitchen is equipped with fridge/freezer, dishwasher, washing machine, tumble drier, oven, micro, coffee machine, toaster, porcelain and cutlery.</p>
+		
+       <h2>First Floor</h2>
+       <p>
+		Working room (with a baby bed), bedroom with bath room en suite and balcony.</p>
+       
+      <h2>Description</h2>
+	  <p>
+		•	Sleeps: 6 + 1 					<br>
+		•	Bedrooms: 3 					<br>
+		•	Bathrooms: 3 					<br>
+		•	Cable and satellite TV 					<br>
+		•	Air Condition in all bedrooms <br>
+		•	Dish washer 					<br>
+		•	Wi-Fi Internet 					<br>
+		•	Washing machine 			<br><br>
+	<b> •	Beach:</b>   5 km 				<br>
+	<b>	•	Restaurant:</b>   400 m 			<br>
+	<b>	•	Pub:</b>   1 km 					<br>
+	<b>	•	Supermarket:</b>   700 m		    <br>
+	<b>	•	Golf:</b>   5 km					<br>
+	<b>	•	Faro airport:</b>   40 km 		<br>
+	<b>	•	Shopping center:</b>   1 km 		<br>
+	<b>	•   Nearest Town:</b>   Albufeira	<br> <br>
+
+	<h3>&nbsp;&nbsp;Dates&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; Price per week (6+1 Persons) </h3> 
+	    &nbsp;15 April - 31 May, 2013&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Euro 540 <br>
+	<p> 1 June - 30 June, 2013&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Euro 690  <br>
+		1 July  - 31 July, 2013&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Euro 875  <br>
+		1 Aug - 31 Aug, 2013&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Euro 1250  <br>
+		1 Sept - 30 Sept, 2013&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Euro 540  <br> <br>
+		Other weeks during 2013 can be agreed  <br> 
+		Breakage deposit: Euro 300             <br>
+		Minimum Rental: 1 week
+</p>
+       
+    <br>
+	<br>
+
+    <h2> Reservations and the managing of the rent: </h2>	
+	<h4> 
+ 
+		Bugan Villas Ltd. <br>
+		Ash House, Cook Way <br> 
+		Taunton, Somerset, TA2 6BJ<br>
+		www.buganvillas.net<br> 
+		info@buganvillas.net <br>
+		phone +44(0) 117 230 0654 <br> <br>
+		Questions can also be made to the owners: <br>
+		Natalie and Ronald Gustafsson <br>
+		Mobile  +46 70 19 02 887 <br>
+		ronald-gustafsson@telia.com <br>
+	</h4>
+ 
+	</div>
+    
+        <div class="grid_2">
+		<p>&nbsp;</p>
+	</div>
+    </div>
+    
+</div>
+
+</body>
+</html>

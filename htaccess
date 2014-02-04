@@ -1,0 +1,9 @@
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteBase /mentorship/mentorship_files/
+RewriteRule ^index\.php$ - [L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /mentorship/mentorship_files/index.php [L]
+</IfModule>
+

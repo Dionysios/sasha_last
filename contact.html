@@ -1,0 +1,163 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<head>
+<link rel="stylesheet" type="text/css" media="all" href="css/reset.css" />
+<link rel="stylesheet" type="text/css" media="all" href="css/text.css" />
+<link rel="stylesheet" type="text/css" media="all" href="css/960.css" />
+<link rel="stylesheet" type="text/css" media="all" href="css/style.css" />
+<link href="css/galleria.css" rel="stylesheet" type="text/css" media="screen"> 
+
+<script type="text/javascript" src="jquery-1.2.6.min.js"></script> 
+<script type="text/javascript" src="jquery.galleria.js"></script> 
+<script type="text/javascript"> 
+jQuery(function($) { 
+
+$('ul.gallery').galleria({
+			history   : true, // activates the history object for bookmarking, back-button etc.
+			clickNext : true, // helper for making the image clickable
+			insert    : '#main_image', // the containing selector for our main image
+			onImage   : function(image,caption,thumb) { // let's add some image effects for demonstration purposes
+				
+				// fade in the image & caption
+				if(! ($.browser.mozilla && navigator.appVersion.indexOf("Win")!=-1) ) { // FF/Win fades large images terribly slow
+					image.css('display','none').fadeIn(1000);
+				}
+				caption.css('display','none').fadeIn(600);
+				
+				// fetch the thumbnail container
+				var _li = thumb.parents('li');
+				
+				// fade out inactive thumbnail
+				_li.siblings().children('img.selected').fadeTo(500,0.3);
+				
+				// fade in active thumbnail
+				thumb.fadeTo('fast',1).addClass('selected');
+				
+				// add a title for the clickable image
+				image.attr('title','Next image >>');
+			},
+			onThumb : function(thumb) { // thumbnail effects goes here
+				
+				// fetch the thumbnail container
+				var _li = thumb.parents('li');
+				
+				// if thumbnail is active, fade all the way.
+				var _fadeTo = _li.is('.active') ? '1' : '0.3';
+				
+				// fade in the thumbnail when finnished loading
+				thumb.css({display:'none',opacity:_fadeTo}).fadeIn(1000);
+				
+				// hover effects
+				thumb.hover(
+					function() { thumb.fadeTo('fast',1); },
+					function() { _li.not('.active').children('img').fadeTo('fast',0.3); } // don't fade out if the parent is active
+				)
+			}
+		});
+
+
+
+
+
+
+}); 
+</script>
+
+<style media="screen,projection" type="text/css">
+	
+	/* BEGIN DEMO STYLE */
+
+	.gallery li{width:80px;height:60px;border:3px double #111;margin: 0 2px;background:#000; float:left;}
+	.gallery {width:300px;}
+
+    </style>
+
+
+
+
+<title>Casa Joaninha</title>
+</head>
+
+<body>
+
+
+<div class="container_12" id="topContent">
+
+    <div class="grid_4">
+            <h1>Casa Joaninha</h1>
+            <h2>Private house in Portugal</h2>
+
+
+    </div>
+			    <div class="grid_8" id="rightTopContent">
+       <!--     <a href="file:///C:/uni/Projects/Portugal/simplegallery/index.html#./images/1.jpg">home</a> |
+            <a href="file:///C:/uni/Projects/Portugal/simplegallery/contact.html#./images/1.jpg">contact</a> -->
+            <a href="index.html#./images/1.jpg">home</a> |
+            <a href="contact.html#./images/1.jpg">contact</a>
+    </div>
+	
+</div>
+
+
+    <div class="clear">&nbsp;</div>
+
+<div class="container_12">
+<div class="grid_4">    
+
+        <ul class="gallery"> 
+			<li class="active">
+			<img src="./images/1.jpg" title="Facade" alt="1"></li> 
+            <li><img src="./images/2.jpg" title="Street view" alt="2"></li> 
+            <li><img src="./images/3.jpg" title="Living room" alt="3"></li> 
+            <li><img src="./images/4.jpg" title="Living room" alt="4"></li> 
+            <li><img src="./images/5.jpg" title="Bedroom #1" alt="5"></li> 
+            <li><img src="./images/6.jpg" title="Bedroom #2" alt="6"></li> 
+            <li><img src="./images/7.jpg" title="Bedroom #3" alt="7"></li> 
+            <li><img src="./images/8.jpg" title="Kitchen" alt="8"></li> 
+            <li><img src="./images/9.jpg" title="Bathroom" alt="9"></li> 
+            <li><img src="./images/10.jpg" title="Swiming pool view from the balcony" alt="10"></li> 
+            <li><img src="./images/11.jpg" title="Working room (with a baby bed)" alt="11"></li> 
+            <li><img src="./images/12.jpg" title="The corridor" alt="12"></li> 
+		</ul>
+        
+	</div>
+	<!-- end .grid_4 -->
+	<div class="grid_8">
+
+			<div id="main_image"></div>
+			
+	<iframe width="640" height="480" frameborder="1" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.se/maps?q=Rua+das+B%C3%A9tulas+62,+8200-425,+Faro,+Portugal&amp;ie=UTF8&amp;hl=en&amp;geocode=FSl_NgIdYXmB_w&amp;split=0&amp;hq=&amp;hnear=Rua+das+B%C3%A9tulas+62,+Faro,+Portugal&amp;t=h&amp;ll=37.125902,-8.292017&amp;spn=0.032848,0.054932&amp;z=14&amp;iwloc=A&amp;output=embed"></iframe><br />
+    <small><a href="https://maps.google.se/maps?q=Rua+das+B%C3%A9tulas+62,+8200-425,+Faro,+Portugal&amp;ie=UTF8&amp;hl=en&amp;geocode=FSl_NgIdYXmB_w&amp;split=0&amp;hq=&amp;hnear=Rua+das+B%C3%A9tulas+62,+Faro,+Portugal&amp;t=h&amp;ll=37.125902,-8.292017&amp;spn=0.032848,0.054932&amp;z=14&amp;iwloc=A&amp;source=embed"
+			style="color:#0A65C9;text-align:left">View Larger Map</a></small>
+	<br>
+	<br>
+	<br>
+	<br>
+			 <!-- Do not change code! -->
+	<table cellspacing="0" cellpadding="0" border="0"><tr><td><iframe width="400" height="440" frameborder="0" src="http://www.foxyform.com/form.php?id=368008&sec_hash=ce261688856"></iframe></td></tr><tr><td align="center"><a style="font:8px Arial;color:#5C5C5C;" href="http://www.foxyform.com">foxyform.com</a></td></tr></table>
+			<!-- Do not change code! -->
+
+	</div>
+    </div>
+    <div class="clear">&nbsp;</div>
+    <div class="container_16">
+    <div class="grid_2">
+		<p>&nbsp;</p>
+	</div>
+    
+      <div class="grid_12" id="galleryInformation">
+		
+       
+ 
+	</div>
+    
+        <div class="grid_2">
+		<p>&nbsp;</p>
+	</div>
+    </div>
+    
+</div>
+
+</body>
+</html>
